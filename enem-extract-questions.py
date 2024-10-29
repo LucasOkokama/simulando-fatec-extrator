@@ -8,8 +8,25 @@ __anoDaProva = 2023
 
 
 # URL da API do Enem
-urlWebsite = f"https://api.enem.dev/v1/exams/{__anoDaProva}/questions/"
 urlSelfHosting = f"http://localhost:3000/v1/exams/{__anoDaProva}/questions/"
+'''
+Hostear servidor para evitar rate limit:
+-> Fazer deploy da api: https://github.com/yunger7/enem-api
+    Instruções da doc: https://docs.enem.dev/self-hosting
+
+-> lib/api/rate-limit.ts
+    Aumentar numero máximo de requisições
+        linha 11
+        antes ===>  this.maxRequests = maxRequests || 10;
+        depois ===> this.maxRequests = 10000;
+'''
+
+urlWebsite = f"https://api.enem.dev/v1/exams/{__anoDaProva}/questions/"
+'''
+Se não for hostear:
+  -> Trocar "urlSelfHosting" para "urlWebsite" no código
+  -> Descomentar o ultimo bloco para habilitar o cooldown
+'''
 
 # Diretorio para onde as questoes irão
 dir_questions = "vestibulares/enem"
@@ -111,7 +128,7 @@ for i in range(1, num_questions + 1):
 
 
 
-    # Espera 2 segundos a cada 10 iterações
-    if i % 10 == 0:
-        print("\n\nAGUARDA 10 SEGUNDOS PARA NÃO ESTOURAR O LIMITE DE REQUISIÇÕES!\n\n\n")
-        time.sleep(10)
+    # Espera 10 segundos a cada 10 iterações
+    # if i % 10 == 0:
+    #     print("\n\nAGUARDA 10 SEGUNDOS PARA NÃO ESTOURAR O LIMITE DE REQUISIÇÕES!\n\n\n")
+    #     time.sleep(10)
