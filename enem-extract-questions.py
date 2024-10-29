@@ -19,9 +19,9 @@ os.makedirs(dir_questions, exist_ok=True)
 os.makedirs(dir_images, exist_ok=True)
 
 # Número da ultima questões a ser extraida
-num_questions = 50
+num_questions = 112
 
-for i in range(1, num_questions + 1):
+for i in range(108, num_questions + 1):
 
     # Modifica a URL para buscar a questão com índice específico
     response = requests.get(f"{url}{i}")
@@ -61,7 +61,7 @@ for i in range(1, num_questions + 1):
                     dir_images_mais_questao = os.path.join(dir_images, str(i))
                     os.makedirs(dir_images_mais_questao, exist_ok=True)
 
-                    # Cria o path da imagem levando em consideração o index da img
+                    # Cria o path da imagem levando em consideração o index da img e da questao
                     img_path = os.path.join(dir_images_mais_questao, f"img_{img_index}_enem_{i}.png")
 
                     # Salva o conteúdo no path/arquivo.extensão com nome definido acima
@@ -72,6 +72,33 @@ for i in range(1, num_questions + 1):
                     print(f"> Imagem {img_index} salva em {img_path}")
                     # Avança o index de imagem
                     img_index+=1
+
+
+
+
+        if 'alternatives' in question_data:
+            for alternativa_index in range (len(question_data['alternatives'])):
+                alter_img_url = question_data['alternatives'][alternativa_index]['file']
+
+                if alter_img_url:
+                    alter_img_url_response = requests.get(alter_img_url)
+                    if alter_img_url_response.status_code == 200: 
+                        # Completa o path criando uma pasta para cada questão
+                        dir_images_mais_questao = os.path.join(dir_images, str(i))
+                        os.makedirs(dir_images_mais_questao, exist_ok=True)
+
+                        # Cria o path da img da alternativa levando em consideração o index da questao
+                        alter_letra = question_data['alternatives'][alternativa_index]['letter']
+                        alter_img_path = os.path.join(dir_images_mais_questao, f"alter_{alter_letra}_enem_{i}.png")
+
+                        with open(alter_img_path, "wb") as alter_img_path:
+                            alter_img_path.write(alter_img_url_response.content)
+
+                        # Mensagem de sucesso
+                        print(f">> Imagem da Alternativa '{alter_letra}' salva em {alter_img_path}")
+
+
+
     else:
         # Mensagem de erro
         print(f"Falha ao obter a questão {i}: Status_Code {response.status_code}")
