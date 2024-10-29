@@ -15,9 +15,9 @@ dir_questions = "vestibulares/enem"
 os.makedirs(dir_questions, exist_ok=True)
 
 # Número da ultima questões a ser extraida
-num_questions = 15
+num_questions = 33
 
-for i in range(10, num_questions + 1):
+for i in range(24, num_questions + 1):
     # Modifica a URL para buscar a questão com índice específico
     response = requests.get(f"{url}{i}")
 
@@ -25,18 +25,47 @@ for i in range(10, num_questions + 1):
     if response.status_code == 200:
         # Cria arquivo cujo nome sera construido com base no índice da questão
         # O arquivo criado já é juntado com o "dir_questions" para ir para o local correto
-        question_path = os.path.join(dir_questions, f"questoes_enem_{i}.txt")
+        question_path = os.path.join(dir_questions, f"questao_enem_{i}.txt")
 
         # Converte o texto da questão para um dicionário (para facilitar na formatação)
         question_data = json.loads(response.text)
 
-        # Salva o conteúdo no arquivo com nome definido acima
+        # Salva o conteúdo no path/arquivo.extensão com nome definido acima
         with open(question_path, "w", encoding="utf-8")  as question_path:
             # Converte dicionario para json e escreve os dados formatados no arquivo
             json.dump(question_data, question_path, ensure_ascii=False, indent=4)
 
         # Mensagem de sucesso
         print(f"Questão {i} salva em {question_path}")
+
+
+
+
+        # Salvando imagens da questao
+        img_index = 1
+        # Verifica se key 'files' existe no dicionario 'question_data'
+        if 'files' in question_data:
+            # Cria um loop que itera sobre cada item de 'files' (ou seja, cada imagem)
+            for img_url in question_data['files']:
+                # Faz um request get para pegar a url da img
+                img_response = requests.get(img_url)
+
+                # Se a requisição deu certo (code 200)
+                if img_response.status_code == 200:
+                    # Cria o path da imagem levando em consideração o index da img
+                    img_path = os.path.join(dir_questions, f"img_{img_index}_enem_{i}.png")
+
+                    # Salva o conteúdo no path/arquivo.extensão com nome definido acima
+                    with open(img_path, "wb") as img_path:
+                        img_path.write(img_response.content)
+
+                    # Mensagem de sucesso
+                    print(f"> Imagem {img_index} salva em {img_path}")
+                    # Avança o index de imagem
+                    img_index+=1
     else:
         # Mensagem de erro
         print(f"Falha ao obter a questão {i}: Status_Code {response.status_code}")
+
+
+    print("\n")
