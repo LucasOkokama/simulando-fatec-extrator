@@ -1,0 +1,25 @@
+{
+    "vestibular": 1,
+    "ano": 2023,
+    "num_questao": 33,
+    "disciplina": "matematica",
+    "enunciado": "segundo sdsadkslsldksdlk e por isso sakkdjskjdskj",
+    "imgs": [
+        "vestibulares/enemFormatado/2023/33/img_1_enem_33.png",
+        "vestibulares/enemFormatado/2023/33/img_2_enem_33.png"
+    ],
+    "pergunta": "asodkasdk alsdklsadlsdk sdl kkllkdsldkslksldkskldk",
+    "alternativa_correta": "B",
+    "alternartivas": [
+        {
+            "alter_letra" : "A",
+            "alter_texto" : "bla bla bla",
+            "alter_img": "vestibulares/enemFormatado/2023/33/alter_A_enem_33.png"
+        },
+        {
+            "alter_letra" : "B",
+            "alter_texto" : "bla bla bla",
+            "alter_img": "vestibulares/enemFormatado/2023/33/alter_B_enem_33.png"
+        }
+    ]
+}

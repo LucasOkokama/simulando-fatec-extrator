@@ -19,7 +19,7 @@ os.makedirs(dir_questions, exist_ok=True)
 os.makedirs(dir_images, exist_ok=True)
 
 # Número da ultima questões a ser extraida
-num_questions = 180
+num_questions = 50
 
 for i in range(1, num_questions + 1):
 
@@ -57,8 +57,12 @@ for i in range(1, num_questions + 1):
 
                 # Se a requisição deu certo (code 200)
                 if img_response.status_code == 200:
+                    # Completa o path criando uma pasta para cada questão
+                    dir_images_mais_questao = os.path.join(dir_images, str(i))
+                    os.makedirs(dir_images_mais_questao, exist_ok=True)
+
                     # Cria o path da imagem levando em consideração o index da img
-                    img_path = os.path.join(dir_images, f"img_{img_index}_enem_{i}.png")
+                    img_path = os.path.join(dir_images_mais_questao, f"img_{img_index}_enem_{i}.png")
 
                     # Salva o conteúdo no path/arquivo.extensão com nome definido acima
                     with open(img_path, "wb") as img_path:
