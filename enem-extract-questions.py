@@ -8,7 +8,9 @@ __anoDaProva = 2023
 
 
 # URL da API do Enem
-url = f"https://api.enem.dev/v1/exams/{__anoDaProva}/questions/"
+urlWebsite = f"https://api.enem.dev/v1/exams/{__anoDaProva}/questions/"
+urlSelfHosting = f"http://localhost:3000/v1/exams/{__anoDaProva}/questions/"
+
 # Diretorio para onde as questoes irão
 dir_questions = "vestibulares/enem"
 # Diretorio para onde as imagens irão
@@ -19,12 +21,12 @@ os.makedirs(dir_questions, exist_ok=True)
 os.makedirs(dir_images, exist_ok=True)
 
 # Número da ultima questões a ser extraida
-num_questions = 112
+num_questions = 180
 
-for i in range(108, num_questions + 1):
+for i in range(1, num_questions + 1):
 
     # Modifica a URL para buscar a questão com índice específico
-    response = requests.get(f"{url}{i}")
+    response = requests.get(f"{urlSelfHosting}{i}")
 
     # Se a requisição deu certo (code 200)
     if response.status_code == 200:
@@ -111,5 +113,5 @@ for i in range(108, num_questions + 1):
 
     # Espera 2 segundos a cada 10 iterações
     if i % 10 == 0:
-        print("\n\nAGUARDA 7 SEGUNDOS PARA NÃO ESTOURAR O LIMITE DE REQUISIÇÕES!\n\n\n")
-        time.sleep(7)
+        print("\n\nAGUARDA 10 SEGUNDOS PARA NÃO ESTOURAR O LIMITE DE REQUISIÇÕES!\n\n\n")
+        time.sleep(10)
