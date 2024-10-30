@@ -88,6 +88,31 @@ for i in range(110, num_questions + 1):
                 question_json_formatted['alternativas'].append(alternativa_formatted);
 
 
+
     except json.JSONDecodeError as error:
         print("O conteúdo do arquivo não está em um formato JSON válido.\n", error)
+        question_json = None
+
+    except FileNotFoundError:
+        print(f"Arquivo {path_questions} não encontrado.")
+        question_json = None
+
+    except PermissionError:
+        print(f"Permissão negada ao acessar {path_questions} ou o diretório de destino.")
+        question_json = None
+
+    except IsADirectoryError:
+        print(f"{path_questions} é um diretório, não um arquivo.")
+        question_json = None
+
+    except UnicodeDecodeError as error:
+        print("Erro de codificação ao ler o arquivo.\n", error)
+        question_json = None
+
+    except KeyError as error:
+        print(f"Chave esperada ausente no JSON: {error}")
+        question_json = None
+
+    except TypeError as error:
+        print("Tipo inesperado de dados encontrado no JSON.\n", error)
         question_json = None
