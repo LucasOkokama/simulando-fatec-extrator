@@ -56,6 +56,22 @@ for i in range(110, num_questions + 1):
                     question_json_formatted['imgs'].append(path_image_complete)
 
 
+            for alternativa in question_json['alternatives']:
+                alternativa_formatted = {
+                    "alter_letra": alternativa['letter'],
+                    "alter_texto": alternativa['text'],
+                    "alter_img": []
+                }
+
+                pattern_img_alternativa = re.compile(rf'.*alter-{alternativa['letter']}\.png$')
+                for arquivo in sorted(os.listdir(dir_questions_number_json)):
+                    if pattern_img_alternativa.match(arquivo):
+                        path_image_complete = os.path.join(dir_questions_number_json, arquivo)
+                        alternativa_formatted['alter_img'].append(path_image_complete)
+                        break;
+
+                question_json_formatted['alternativas'].append(alternativa_formatted);
+
     except json.JSONDecodeError as error:
         print("O conteúdo do arquivo não está em um formato JSON válido.\n", error)
         question_json = None
