@@ -38,6 +38,24 @@ for i in range(110, num_questions + 1):
             }
 
 
+            dir_questions_number_json = os.path.join(dir_questions_json, str(i))
+            os.makedirs(dir_questions_number_json, exist_ok=True)
+
+            pattern_img_questao = re.compile(r'.*img\d+\.png$')
+            '''
+            .* ==> O "." representa qualquer caractere, e o "*" significa "zero ou mais vezes"
+            img ==> indica literalmente a palavra "img"
+            \d+ ==> corresponde a um ou mais dígitos (2, 45, 856, etc)
+            \.png ==>  indica literalmente a palavra ".png" 
+            $ ==> indica o fim da string
+            '''
+
+            for arquivo in sorted(os.listdir(dir_questions_number_json)):
+                if pattern_img_questao.match(arquivo):
+                    path_image_complete = os.path.join(dir_questions_number_json, arquivo)
+                    question_json_formatted['imgs'].append(path_image_complete)
+
+
     except json.JSONDecodeError as error:
         print("O conteúdo do arquivo não está em um formato JSON válido.\n", error)
         question_json = None
