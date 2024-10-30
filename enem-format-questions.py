@@ -47,13 +47,12 @@ for i in range(110, num_questions + 1):
 
             # Regex para encontrar arquivos com nomes específicos. Eles são as imagens da questão
             pattern_img_questao = re.compile(r'.*img\d+\.png$')
-            '''
-            .* ==> O "." representa qualquer caractere, e o "*" significa "zero ou mais vezes"
-            img ==> indica literalmente a palavra "img"
-            \d+ ==> corresponde a um ou mais dígitos (2, 45, 856, etc)
-            \.png ==>  indica literalmente a palavra ".png" 
-            $ ==> indica o fim da string
-            '''
+            #   .* ==> O "." representa qualquer caractere, e o "*" significa "zero ou mais vezes"
+            #   img ==> indica literalmente a palavra "img"
+            #   \d+ ==> corresponde a um ou mais dígitos (2, 45, 856, etc)
+            #   \.png ==>  indica literalmente a palavra ".png"
+            #   $ ==> indica o fim da string
+
 
             # Itera sobre todos os arquivos que estão na pasta da questão
             # Organiza esses arquivos em ordem alfabética
