@@ -49,7 +49,7 @@ for i in range(1, num_questions + 1):
   if response.status_code == 200:
     # Cria arquivo cujo nome sera construido com base no índice da questão
     # O arquivo criado já é juntado com o "dir_questions" para ir para o local correto
-    question_path = os.path.join(dir_questions, f"questao_enem_{i}.txt")
+    question_path = os.path.join(dir_questions, f"enem_questao{i}.txt")
 
     # Converte o texto da questão para um dicionário (para facilitar na formatação)
     question_data = json.loads(response.text)
@@ -81,7 +81,7 @@ for i in range(1, num_questions + 1):
           os.makedirs(dir_images_mais_questao, exist_ok=True)
 
           # Cria o path da imagem levando em consideração o index da img e da questao
-          img_path = os.path.join(dir_images_mais_questao, f"img_{img_index}_enem_{i}.png")
+          img_path = os.path.join(dir_images_mais_questao, f"enem_questao{i}_img{img_index}.png")
 
           # Salva o conteúdo no path/arquivo.extensão com nome definido acima
           with open(img_path, "wb") as img_path:
@@ -108,7 +108,7 @@ for i in range(1, num_questions + 1):
 
             # Cria o path da img da alternativa levando em consideração o index da questao
             alter_letra = question_data['alternatives'][alternativa_index]['letter']
-            alter_img_path = os.path.join(dir_images_mais_questao, f"alter_{alter_letra}_enem_{i}.png")
+            alter_img_path = os.path.join(dir_images_mais_questao, f"enem_questao{i}_alter-{alter_letra}.png")
 
             with open(alter_img_path, "wb") as alter_img_path:
               alter_img_path.write(alter_img_url_response.content)
