@@ -20,12 +20,9 @@ num_questions = 5
 for i in range(1, num_questions + 1):
     path_questions = os.path.join(dir_questions_txt, f"enem_questao{i}.txt")
 
-    with open(path_questions, 'r') as path_questions:
-        question_txt = path_questions.read();
-
     try:
-        question_json = json.loads(question_txt)
-
+        with open(path_questions, 'r') as path_questions:
+            question_json =  json.load(path_questions)
 
     except json.JSONDecodeError as error:
         print("O conteúdo do arquivo não está em um formato JSON válido.\n", error);
