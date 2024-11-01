@@ -16,9 +16,9 @@ os.makedirs(dir_questions_txt, exist_ok=True)
 os.makedirs(dir_questions_json, exist_ok=True)
 
 # Número da última questões a ser extraida
-num_questions = 110
+num_questions = 180
 
-for i in range(110, num_questions + 1):
+for i in range(1, num_questions + 1):
     # Salva o caminho de uma questão específica (.txt)
     path_questions = os.path.join(dir_questions_txt, f"enem_questao{i}.txt")
 
@@ -89,7 +89,7 @@ for i in range(110, num_questions + 1):
                 textoEnunciadoTagImg = re.sub(pattern, img_html_tag, textoEnunciadoTagImg, count=1)
 
             # Substitui "\n" por "<br>" para o navegador/html entenderem e armazena o novo enunciado no dict formatado
-            question_dict_formatted['enunciado'] = textoEnunciadoTagImg.replace("\n", "<br>")
+            question_dict_formatted['enunciado'] = str(textoEnunciadoTagImg).replace("\n", "<br>")
 
             # Itera sobre os objetos (dicts) da list 'alternatives'
             for alternativa in question_dict['alternatives']:
