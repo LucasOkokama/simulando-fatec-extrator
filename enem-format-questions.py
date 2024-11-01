@@ -70,14 +70,15 @@ for i in range(110, num_questions + 1):
             textoEnunciadoTagImg = question_dict['context']
             for linkImg in question_dict_formatted['imgs']:
                 pattern = r'!\[\]\((.*?)\)'
+
                 '''
                    !      => Procura pelo carácter "!"
-                   \[     => Procura pelo carácter "[". A barra invertida >\< serve para fazer o escape
-                   \]     => Procura pelo carácter "]". A barra invertida >\< serve para fazer o escape
-                   \(     => Procura pelo carácter "(". A barra invertida >\< serve para fazer o escape
+                   \\[     => Procura pelo carácter "[". A barra invertida >\\< serve para fazer o escape
+                   \\]     => Procura pelo carácter "]". A barra invertida >\\< serve para fazer o escape
+                   \\(     => Procura pelo carácter "(". A barra invertida >\\< serve para fazer o escape
                    (.*?)  => Procura por qualquer carácter (.) que apareça zero ou mais vezes (*) 
                              no menor espaço possível para satisfazer a condição (? ou não-guloso)
-                   \)     ==> Procura pelo carácter ")". A barra invertida >\< serve para fazer o escape
+                   \\)     ==> Procura pelo carácter ")". A barra invertida >\\< serve para fazer o escape
                 '''
 
                 # Cria a tag da imagem já com o respectivo link e alt
@@ -103,7 +104,7 @@ for i in range(110, num_questions + 1):
                 pattern_img_alternativa = re.compile(rf'.*alter-{alternativa['letter']}\.png$')
                 for arquivo in sorted(os.listdir(dir_questions_number_json)):
                     if pattern_img_alternativa.match(arquivo):
-                        path_image_complete = os.path.join(dir_questions_number_json, arquivo)
+                        path_image_complete = os.path.join(dir_questions_number_json, arquivo).replace("\\", "/")
                         # Armazena esse caminho no array 'alter_img' do dict formatado da alternativa
                         alternativa_formatted['alter_img'].append(path_image_complete)
                         break
