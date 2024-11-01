@@ -88,7 +88,7 @@ for i in range(1, num_questions + 1):
 
 
             # Converte dict para json
-            question_json_formatted = json.dumps(question_dict_formatted, indent=4)
+            question_json_formatted = json.dumps(question_dict_formatted, indent=4, ensure_ascii=False)
 
             # Salva o arquivo json no caminho especificado
             path_json_formatted = os.path.join(dir_questions_number_json, f"enem_questao{i}.json")
