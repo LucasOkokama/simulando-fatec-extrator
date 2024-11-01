@@ -16,9 +16,9 @@ os.makedirs(dir_questions_txt, exist_ok=True)
 os.makedirs(dir_questions_json, exist_ok=True)
 
 # Número da última questões a ser extraida
-num_questions = 55
+num_questions = 110
 
-for i in range(55, num_questions + 1):
+for i in range(110, num_questions + 1):
     # Salva o caminho de uma questão específica (.txt)
     path_questions = os.path.join(dir_questions_txt, f"enem_questao{i}.txt")
 
@@ -33,14 +33,12 @@ for i in range(55, num_questions + 1):
                 "ano": question_dict['year'],
                 "num_questao": question_dict['index'],
                 "disciplina": question_dict['discipline'],
-                "enunciado": question_dict['context'],
+                "enunciado": "",
                 "imgs": [],
                 "pergunta": question_dict['alternativesIntroduction'].replace("\n", "<br>"),
                 "gabarito": question_dict['correctAlternative'],
                 "alternativas": []
             }
-
-            print(question_dict['alternativesIntroduction'].replace("prolongamento", "<br>"));
 
             # Salva o caminho para onde a questão formatada deve ir
             dir_questions_number_json = os.path.join(dir_questions_json, str(i))
@@ -62,10 +60,35 @@ for i in range(55, num_questions + 1):
                 # Se o padrão Regex for respeitado...
                 if pattern_img_questao.match(arquivo):
                     # Salva o caminho do arquivo encontado
-                    path_image_complete = os.path.join(dir_questions_number_json, arquivo)
+                    path_image_complete = os.path.join(dir_questions_number_json, arquivo).replace("\\","/")
                     # Armazena esse caminho no array 'imgs' do dict formatado
                     question_dict_formatted['imgs'].append(path_image_complete)
 
+
+            # Implementa tag de img no enunciado
+            imgCount = 1
+            textoEnunciadoTagImg = question_dict['context']
+            for linkImg in question_dict_formatted['imgs']:
+                pattern = r'!\[\]\((.*?)\)'
+                '''
+                   !      => Procura pelo carácter "!"
+                   \[     => Procura pelo carácter "[". A barra invertida >\< serve para fazer o escape
+                   \]     => Procura pelo carácter "]". A barra invertida >\< serve para fazer o escape
+                   \(     => Procura pelo carácter "(". A barra invertida >\< serve para fazer o escape
+                   (.*?)  => Procura por qualquer carácter (.) que apareça zero ou mais vezes (*) 
+                             no menor espaço possível para satisfazer a condição (? ou não-guloso)
+                   \)     ==> Procura pelo carácter ")". A barra invertida >\< serve para fazer o escape
+                '''
+
+                # Cria a tag da imagem já com o respectivo link e alt
+                img_html_tag = f'<img src="{linkImg}" alt="imagem {imgCount} da questão">'
+                imgCount += 1
+                # Procura no texto o padrão criado, e se achado ele substitui pelo img_html_tag.
+                # O count=1 diz que ele só deverá substituir a primeira instância por comando
+                textoEnunciadoTagImg = re.sub(pattern, img_html_tag, textoEnunciadoTagImg, count=1)
+
+            # Substitui "\n" por "<br>" para o navegador/html entenderem e armazena o novo enunciado no dict formatado
+            question_dict_formatted['enunciado'] = textoEnunciadoTagImg.replace("\n", "<br>")
 
             # Itera sobre os objetos (dicts) da list 'alternatives'
             for alternativa in question_dict['alternatives']:
@@ -83,7 +106,7 @@ for i in range(55, num_questions + 1):
                         path_image_complete = os.path.join(dir_questions_number_json, arquivo)
                         # Armazena esse caminho no array 'alter_img' do dict formatado da alternativa
                         alternativa_formatted['alter_img'].append(path_image_complete)
-                        break;
+                        break
 
                 # Adiciona o objeto da alternativa criado na list 'alternativas' do json formatado
                 question_dict_formatted['alternativas'].append(alternativa_formatted);

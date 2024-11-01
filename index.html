@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> HTML + JSON </title>
+    </head>
+    <body>
+        <h1> Teste de exibição de dados do JSON formatado</h1>
+
+        <h2 id="title"></h2>        <!-- Enem 2023 - Linguagens -->
+        <p id="enunciado"></p>      <!-- 1. Texto texto Img texto texto Img texto -->
+        <p id="pergunta"></p>       <!-- Perguntaaaa -->
+        <div id="alternativas-box">
+        </div>
+        <p id="gabarito"></p>       <!-- Resposta correta: B-->
+    </body>
+
+    <script>
+        async function carregarDados(){
+            try{
+                const response = await fetch('vestibulares/enemFormatado/2023/110/enem_questao110.json');
+                const questao = await response.json();
+
+                const titulo = document.getElementById('title');
+                const enunciado = document.getElementById('enunciado');
+                const pergunta = document.getElementById('pergunta');
+                const alternativas = document.getElementById('alternativas-box');
+                const gabarito = document.getElementById('gabarito');
+
+                titulo.innerHTML = "Enem " + questao.ano + " - " + questao.disciplina;
+                enunciado.innerHTML = questao.enunciado;
+                pergunta.innerHTML = questao.pergunta;
+
+                questao.alternativas.forEach(alternativa => {
+                    const p = document.createElement('p');
+                    p.className = 'alternativa';
+                    p.textContent = alternativa.alter_letra + ") " + alternativa.alter_texto;
+                    alternativas.appendChild(p);
+                })
+
+                gabarito.textContent = "Resposta correta: " + questao.gabarito;
+            }
+            catch(error){
+                console.error("Erro ao carregar arquivo JSON: ", error);
+            }
+        }
+
+        carregarDados();
+    </script>
+</html>
+
