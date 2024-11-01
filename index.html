@@ -35,8 +35,19 @@
                 questao.alternativas.forEach(alternativa => {
                     const p = document.createElement('p');
                     p.className = 'alternativa';
-                    p.textContent = alternativa.alter_letra + ") " + alternativa.alter_texto;
+
+                    if(alternativa.alter_texto){
+                        p.innerHTML = alternativa.alter_letra + ") " + alternativa.alter_texto;
+                    }
+                    else{
+                        p.innerHTML = alternativa.alter_letra + ") "
+                    }
+
                     alternativas.appendChild(p);
+
+                    const img = document.createElement('img');
+                    img.src = alternativa.alter_img;
+                    alternativas.appendChild(img)
                 })
 
                 gabarito.textContent = "Resposta correta: " + questao.gabarito;
