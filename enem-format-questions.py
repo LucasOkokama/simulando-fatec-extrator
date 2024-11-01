@@ -16,9 +16,9 @@ os.makedirs(dir_questions_txt, exist_ok=True)
 os.makedirs(dir_questions_json, exist_ok=True)
 
 # Número da última questões a ser extraida
-num_questions = 180
+num_questions = 55
 
-for i in range(1, num_questions + 1):
+for i in range(55, num_questions + 1):
     # Salva o caminho de uma questão específica (.txt)
     path_questions = os.path.join(dir_questions_txt, f"enem_questao{i}.txt")
 
@@ -35,10 +35,12 @@ for i in range(1, num_questions + 1):
                 "disciplina": question_dict['discipline'],
                 "enunciado": question_dict['context'],
                 "imgs": [],
-                "pergunta": question_dict['alternativesIntroduction'],
+                "pergunta": question_dict['alternativesIntroduction'].replace("\n", "<br>"),
                 "gabarito": question_dict['correctAlternative'],
                 "alternativas": []
             }
+
+            print(question_dict['alternativesIntroduction'].replace("prolongamento", "<br>"));
 
             # Salva o caminho para onde a questão formatada deve ir
             dir_questions_number_json = os.path.join(dir_questions_json, str(i))
