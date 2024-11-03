@@ -58,7 +58,7 @@ def enemExtrairQuestoes(anoDaProva):
         json.dump(question_data, question_path, ensure_ascii=False, indent=4)
 
       # Mensagem de sucesso
-      print(f"Questão {i} salva em {question_path}")
+      # print(f"Questão {i} salva em {question_path}")
 
 
 
