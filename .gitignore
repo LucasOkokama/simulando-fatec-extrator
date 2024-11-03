@@ -1,3 +1,5 @@
+vestibulares/**/*.json
+__pycache__/
 *.txt
 *.png
-vestibulares/**/*.json
+*.pyc
