@@ -123,7 +123,7 @@ def enemExtrairQuestoes(anoDaProva):
 
 
     # Espaçamento para facilitar leitura do console
-    print("\n")
+    # print("\n")
 
 
 
