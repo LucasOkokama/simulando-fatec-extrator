@@ -110,13 +110,10 @@ def enemFormatarQuestoes(anoDaProva):
                     question_dict_formatted['alternativas'].append(alternativa_formatted);
 
 
-                # Converte dict para json
-                question_json_formatted = json.dumps(question_dict_formatted, indent=4, ensure_ascii=False)
-
                 # Salva o arquivo json no caminho especificado
                 path_json_formatted = os.path.join(dir_questions_number_json, f"enem_questao{i}.json")
                 with open(path_json_formatted, 'w') as path_json_formatted:
-                    path_json_formatted.write(question_json_formatted)
+                    json.dump(question_dict_formatted, path_json_formatted, indent=4, ensure_ascii=False)
 
 
 
