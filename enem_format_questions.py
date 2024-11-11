@@ -92,9 +92,9 @@ def enemFormatarQuestoes(anoDaProva):
                 for alternativa in question_dict['alternatives']:
                     # Cria um dict com base nos dados presentes nos dicts da list 'alternatives'
                     alternativa_formatted = {
-                        "alter_letra": alternativa['letter'],
-                        "alter_texto": alternativa['text'],
-                        "alter_img": []
+                        "letra": alternativa['letter'],
+                        "texto": alternativa['text'],
+                        "img_url": ""
                     }
 
                     # Regex para encontrar arquivos com nomes específicos. Eles são as imagens das alternativas
