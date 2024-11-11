@@ -27,9 +27,9 @@ def enemExtrairQuestoes(anoDaProva):
   '''
 
   # Diretorio para onde as questoes irão
-  dir_questions = "vestibulares/enem"
+  dir_questions = "vestibulares/enem/enemExtraido"
   # Diretorio para onde as imagens irão
-  dir_images = f"vestibulares/enemFormatado/{anoDaProva}"
+  dir_images = f"vestibulares/enem/enemFormatado/{anoDaProva}"
 
   # Cria o diretório se ele não existir
   os.makedirs(dir_questions, exist_ok=True)

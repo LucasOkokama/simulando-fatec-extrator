@@ -4,9 +4,9 @@ import re
 
 def enemFormatarQuestoes(anoDaProva):
     # Diretório para acessar as questões NÃO FORMATADAS
-    dir_questions_txt = "vestibulares/enem"
+    dir_questions_txt = "vestibulares/enem/enemExtraido"
     # Diretório para onde as questões FORMATADAS irão
-    dir_questions_json = f"vestibulares/enemFormatado/{anoDaProva}"
+    dir_questions_json = f"vestibulares/enem/enemFormatado/{anoDaProva}"
 
     # Cria o diretório se ele não existir
     os.makedirs(dir_questions_txt, exist_ok=True)
