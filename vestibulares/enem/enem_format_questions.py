@@ -103,7 +103,7 @@ def enemFormatarQuestoes(anoDaProva):
                         if pattern_img_alternativa.match(arquivo):
                             path_image_complete = os.path.join(dir_questions_number_json, arquivo).replace("\\", "/")
                             # Armazena esse caminho no array 'alter_img' do dict formatado da alternativa
-                            alternativa_formatted['alter_img'].append(path_image_complete)
+                            alternativa_formatted['img_url'] = path_image_complete
                             break
 
                     # Adiciona o objeto da alternativa criado na list 'alternativas' do json formatado
