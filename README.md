@@ -72,7 +72,11 @@ py enem.py
 ```console
 git update-index --assume-unchanged gemini-api-key.txt
 ```
-4. E em seguida:
+4. Instale os pacotes para usar o Gemini AI:
+```console
+pip install -q -U google-generativeai
+```
+5. E em seguida:
 ```console
 py fatec.py
 ```
