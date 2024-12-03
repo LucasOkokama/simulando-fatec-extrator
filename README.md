@@ -37,7 +37,7 @@ Existem duas formas de extrair as questões do Enem.
         time.sleep(10)
 ```
 3. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
-```cmd
+```console
 py enem.py
 ```
 
@@ -54,7 +54,7 @@ this.maxRequests = 10000;
 ```
 3. Starte o servidor da API do Enem novamente.
 4. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
-```cmd
+```console
 py enem.py
 ```
 
@@ -69,10 +69,10 @@ py enem.py
 1. As questões do Vestibular FATEC serão extraidas usando o [Gemini AI](https://gemini.google.com/) da Google. Para isso, você deve [**criar uma chave de API**](https://aistudio.google.com/apikey) gratuitamente, além de ter uma [conta Google](#conta-google-para-o-gemini-ai).
 2. Copie sua API Key do Gemini AI e cole no arquivo `gemini-api-key.txt`
 3. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
-```cmd
+```console
 git update-index --assume-unchanged gemini-api-key.txt
 ```
 4. E em seguida:
-```cmd
+```console
 py fatec.py
 ```
