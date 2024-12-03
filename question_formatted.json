@@ -1,0 +1,38 @@
+{
+    "vestibular": 1,
+    "ano": 1,
+    "semestre": 1,
+    "num_questao": 1,
+    "disciplina": "",
+    "enunciado": "",
+    "imgs": [],
+    "pergunta": "",
+    "gabarito": "",
+    "alternativas": [
+        {
+            "letra": "A",
+            "texto": "",
+            "img_url": ""
+        },
+        {
+            "letra": "B",
+            "texto": "",
+            "img_url": ""
+        },
+        {
+            "letra": "C",
+            "texto": "",
+            "img_url": ""
+        },
+        {
+            "letra": "D",
+            "texto": "",
+            "img_url": ""
+        },
+        {
+            "letra": "E",
+            "texto": "",
+            "img_url": ""
+        }
+    ]
+}
