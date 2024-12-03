@@ -1,0 +1,5 @@
+Algumas questões precisam de um texto de suporte para serem resolvidas, outras não precisam desse texto.
+Esses textos normalmente possuem um titulo como "Leia o texto para responder às questões de XX a YY.", sendo XX e YY números que representam um intervalo.
+Quero que você busque somente o texto de suporte que faz referencia a questão pedido, mas não inclua o título do texto.
+
+Se não houver nenhum texto de suporte que possua o titulo "Leia o texto para responder às questões de XX a YY." ou semelhante para a questão pedida, retorne um "Nao_Existe". Não invente informações.
