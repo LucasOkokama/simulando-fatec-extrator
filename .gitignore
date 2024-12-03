@@ -1,5 +1,6 @@
-vestibulares/**/*.json
 __pycache__/
-*.txt
-*.png
 *.pyc
+
+vestibulares/**/*.json
+vestibulares/enem/enemExtraido/*.txt
+*.png
