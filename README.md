@@ -62,5 +62,9 @@ py enem.py
 2. Copie sua API Key do Gemini AI e cole no arquivo `gemini-api-key.txt`
 3. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
 ```cmd
+git update-index --assume-unchanged gemini-api-key.txt
+```
+4. E em seguida:
+```cmd
 py fatec.py
 ```
