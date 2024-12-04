@@ -15,8 +15,11 @@ Ter o python instalado. Veja [Python Download](https://www.python.org/downloads/
 Efetuar o [login em sua conta](https://support.google.com/mail/answer/8494) ou [criar uma nova conta](https://support.google.com/mail/answer/56256)
 
 # Extrair questões do ENEM
+> [!NOTE]  
+> Em caso de dúvidas, veja a [documentação oficial](https://docs.enem.dev/introduction) da API do Enem para facilitar!
+
 Existem duas formas de extrair as questões do Enem.
-- A primeira forma é utilizando a própria [API do ENEM](https://github.com/yunger7/enem-api) de forma online. Uma dos problemas é o limite de requisição existente, portanto essa forma será mais lenta.
+- A primeira forma é utilizando a própria [API do ENEM](https://github.com/yunger7/enem-api) de forma online. Um dos problemas é o limite de requisição existente, portanto essa forma será mais lenta.
 - A segunda maneira é fazer um self-hosting, o que e remover o limite de requisição manualmente.
 
 > [!WARNING]
@@ -60,6 +63,9 @@ py enem.py
 
 
 # Extrair questões da FATEC
+> [!NOTE]  
+> Em caso de dúvidas, veja a [documentação oficial](https://ai.google.dev/gemini-api/docs) da API da Gemini AI para facilitar!
+
 > [!CAUTION]
 > O Gemini AI tende a errar os valores dos campos `enunciado` e `pergunta`. Por isso, é bom revisá-los!
 
