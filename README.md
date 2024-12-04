@@ -18,12 +18,12 @@ Efetuar o [login em sua conta](https://support.google.com/mail/answer/8494) ou [
 > [!NOTE]  
 > Em caso de dúvidas, veja a [documentação oficial](https://docs.enem.dev/introduction) da API do Enem para facilitar!
 
+> [!WARNING]
+> Algumas questões não estão disponíveis pela API do ENEM. Estas serão informadas no Prompt de Comando que estiver executando o servidor da API.
+
 Existem duas formas de extrair as questões do Enem.
 - A primeira forma é utilizando a própria [API do ENEM](https://github.com/yunger7/enem-api) de forma online. Um dos problemas é o limite de requisição existente, portanto essa forma será mais lenta.
 - A segunda maneira é fazer um self-hosting, o que e remover o limite de requisição manualmente.
-
-> [!WARNING]
-> Algumas questões não estão disponíveis pela API do ENEM. Estas serão informadas no Prompt de Comando que estiver executando o servidor da API.
 
 ## Extraindo questões usando a API Online
 1. No arquivo `enem_extract_questions.py` (/vestibulares/enem), **substitua** todos `urlSelfHosting` por `urlWebsite`.
