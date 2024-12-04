@@ -1,7 +1,7 @@
 # Tópicos
 ### [Pré-requisitos](#pré-requisitos)
 ### [Extrair questões do ENEM](#extrair-questões-do-enem)
-### [Extrair questõe da Fatec](#extrair-questões-da-fatec)
+### [Extrair questõe da FATEC](#extrair-questões-da-fatec)
 
 <br>
 <br>
