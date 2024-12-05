@@ -4,7 +4,6 @@
 ### [Extrair questõe da FATEC](#extrair-questões-da-fatec)
 
 <br>
-<br>
 
 # Pré requisitos
 
