@@ -114,7 +114,9 @@ def fatecFormatarQuestoes(anoDaProva, semestreDaProva):
         questao_formatada_json = json.loads(questao_formatada_json)
 
         # Adiciona valores à alguns campos
+        questao_formatada_json['ano'] = anoDaProva
         questao_formatada_json['vestibular'] = 2
+        questao_formatada_json['semestre'] = semestreDaProva
         questao_formatada_json['disciplina'] = response_Disciplina.text
         questao_formatada_json['gabarito'] = response_Gabarito.text
 
