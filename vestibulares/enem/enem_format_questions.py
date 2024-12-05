@@ -28,6 +28,7 @@ def enemFormatarQuestoes(anoDaProva):
                 question_dict_formatted = {
                     "vestibular": 1,
                     "ano": question_dict['year'],
+                    "semestre": 0,
                     "num_questao": question_dict['index'],
                     "disciplina": question_dict['discipline'],
                     "enunciado": "",
