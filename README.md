@@ -26,8 +26,12 @@ Existem duas formas de extrair as questões do Enem.
 - A segunda maneira é fazer um self-hosting, o que e remover o limite de requisição manualmente.
 
 ## Extraindo questões usando a API Online
-1. No arquivo `enem_extract_questions.py` (/vestibulares/enem), **substitua** todos `urlSelfHosting` por `urlWebsite`.
-2. Ainda no mesmo arquivo, no final do código, **descomente** o seguinte block de código:
+1. Faça um `git clone` do repositório:
+```console
+git clone https://github.com/LucasKazuhiro/vestibular-extrair-questoes.git
+```
+2. No arquivo `enem_extract_questions.py` (/vestibulares/enem), **substitua** todos `urlSelfHosting` por `urlWebsite`.
+3. Ainda no mesmo arquivo, no final do código, **descomente** o seguinte block de código:
 ```python
 # Espaçamento para facilitar leitura do console
     print("\n")
@@ -39,7 +43,7 @@ Existem duas formas de extrair as questões do Enem.
         print("\n\nAGUARDA 10 SEGUNDOS PARA NÃO ESTOURAR O LIMITE DE REQUISIÇÕES!\n\n\n")
         time.sleep(10)
 ```
-3. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
+4. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
 ```console
 py enem.py
 ```
@@ -56,7 +60,11 @@ Para o comando:
 this.maxRequests = 10000;
 ```
 3. Starte o servidor da API do Enem novamente.
-4. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
+4. Faça um `git clone` do repositório:
+```console
+git clone https://github.com/LucasKazuhiro/vestibular-extrair-questoes.git
+```
+5. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
 ```console
 py enem.py
 ```
@@ -73,16 +81,20 @@ py enem.py
 > Nenhum imagem é extraída, estas devem ser feitas manualmente.
 
 1. As questões do Vestibular FATEC serão extraidas usando o [Gemini AI](https://gemini.google.com/) da Google. Para isso, você deve [**criar uma chave de API**](https://aistudio.google.com/apikey) gratuitamente, além de ter uma [conta Google](#conta-google-para-o-gemini-ai).
-2. Copie sua API Key do Gemini AI e cole no arquivo `gemini-api-key.txt`
-3. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
+2. Faça um `git clone` do repositório:
+```console
+git clone https://github.com/LucasKazuhiro/vestibular-extrair-questoes.git
+```
+3. Copie sua API Key do Gemini AI e cole no arquivo `gemini-api-key.txt`
+4. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
 ```console
 git update-index --assume-unchanged gemini-api-key.txt
 ```
-4. Instale os pacotes para usar o Gemini AI:
+5. Instale os pacotes para usar o Gemini AI:
 ```console
 pip install -q -U google-generativeai
 ```
-5. E em seguida:
+6. E em seguida:
 ```console
 py fatec.py
 ```
