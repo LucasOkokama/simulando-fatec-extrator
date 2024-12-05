@@ -17,10 +17,10 @@ def upload_pdf(path, mime_type=None):
   print(f"Arquivo carregado '{file.display_name}' como: {file.uri}")
   return file
 
-def fatecFormatarQuestoes(anoDaProva):
+def fatecFormatarQuestoes(anoDaProva, semestreDaProva):
   try:
     # Diretório para onde as questões FORMATADAS irão
-    dir_questions_json = f"vestibulares/fatec/fatecFormatado/{anoDaProva}"
+    dir_questions_json = f"vestibulares/fatec/fatecFormatado/{anoDaProva}_{semestreDaProva}"
     # Cria o diretório se ele não existir
     os.makedirs(dir_questions_json, exist_ok=True)
 
@@ -49,8 +49,8 @@ def fatecFormatarQuestoes(anoDaProva):
 
       # Array contendo os arquivos (PDF's)
       files = [
-        upload_pdf(f"vestibulares/fatec/pdf/fatecProva_{anoDaProva}.pdf", mime_type="application/pdf"),
-        upload_pdf(f"vestibulares/fatec/pdf/fatecGabarito_{anoDaProva}.pdf", mime_type="application/pdf"),
+        upload_pdf(f"vestibulares/fatec/pdf/fatecProva_{anoDaProva}_{semestreDaProva}.pdf", mime_type="application/pdf"),
+        upload_pdf(f"vestibulares/fatec/pdf/fatecGabarito_{anoDaProva}_{semestreDaProva}.pdf", mime_type="application/pdf"),
       ]
 
       print("\n\n\n")
