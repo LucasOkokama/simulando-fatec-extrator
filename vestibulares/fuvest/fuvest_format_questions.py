@@ -19,7 +19,7 @@ def upload_pdf(path, mime_type=None):
 def fuvestFormatarQuestoes(anoDaProva):
   try:
     # Diretório para onde as questões FORMATADAS irão
-    dir_questions_json = f"vestibulares/fatec/fatecFormatado/{anoDaProva}"
+    dir_questions_json = f"vestibulares/fuvest/fuvestFormatado/{anoDaProva}"
     # Cria o diretório se ele não existir
     os.makedirs(dir_questions_json, exist_ok=True)
 
