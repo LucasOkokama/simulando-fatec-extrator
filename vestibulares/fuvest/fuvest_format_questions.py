@@ -16,7 +16,7 @@ def upload_pdf(path, mime_type=None):
   print(f"Arquivo carregado '{file.display_name}' como: {file.uri}")
   return file
 
-def fatecFormatarQuestoes(anoDaProva):
+def fuvestFormatarQuestoes(anoDaProva):
   try:
     # Diretório para onde as questões FORMATADAS irão
     dir_questions_json = f"vestibulares/fatec/fatecFormatado/{anoDaProva}"
@@ -55,11 +55,11 @@ def fatecFormatarQuestoes(anoDaProva):
       print("\n\n\n")
 
 
-      with open('vestibulares/fatec/prompt-enunciado-pergunta-alternativas.txt', 'r', encoding="utf-8") as prompt_pedido_txt_file:
+      with open('vestibulares/fuvest/prompt-enunciado-pergunta-alternativas.txt', 'r', encoding="utf-8") as prompt_pedido_txt_file:
         # Armazena o pedido
         prompt_pedido = prompt_pedido_txt_file.read()
 
-      with open('vestibulares/fatec/prompt-enunciadoExtra.txt', 'r', encoding="utf-8") as prompt_enunciadoExtra_txt_file:
+      with open('vestibulares/fuvest/prompt-enunciadoExtra.txt', 'r', encoding="utf-8") as prompt_enunciadoExtra_txt_file:
         # Armazena o pedido
         prompt_enunciadoExtra = prompt_enunciadoExtra_txt_file.read()
 
