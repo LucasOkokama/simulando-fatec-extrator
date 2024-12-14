@@ -49,8 +49,8 @@ def fatecFormatarQuestoes(anoDaProva, semestreDaProva):
 
       # Array contendo os arquivos (PDF's)
       files = [
-        upload_pdf(f"vestibulares/fatec/pdf/fatecProva_{anoDaProva}_{semestreDaProva}.pdf", mime_type="application/pdf"),
-        upload_pdf(f"vestibulares/fatec/pdf/fatecGabarito_{anoDaProva}_{semestreDaProva}.pdf", mime_type="application/pdf"),
+        upload_pdf(f"vestibulares/fatec/pdf/FatecProva_{anoDaProva}_{semestreDaProva}.pdf", mime_type="application/pdf"),
+        upload_pdf(f"vestibulares/fatec/pdf/FatecGabarito_{anoDaProva}_{semestreDaProva}.pdf", mime_type="application/pdf"),
       ]
 
       print("\n\n\n")
