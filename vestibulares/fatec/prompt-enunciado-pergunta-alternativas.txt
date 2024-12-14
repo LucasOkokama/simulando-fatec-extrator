@@ -29,6 +29,6 @@ Você deve ignorar qualquer tipo de "quadro", "tabela" ou coisa do gênero, mesm
 
 
 
-As aspas duplas que aparecerem em Enunciado, Pergunta e nos textos das alternativas devem ser precedidos de apenas uma única barra (\) para evitar problemas de formatação.
+As aspas duplas que aparecerem em Enunciado, Pergunta e nos textos das alternativas devem ser precedidos de apenas uma única barra invertida (nada mais que isso) para evitar problemas de formatação.
 
 Textos que estiverem em inglês devem ser mantidos em inglês.
