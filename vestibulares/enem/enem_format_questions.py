@@ -44,6 +44,20 @@ def enemFormatarQuestoes(anoDaProva):
                     "alternativas": []
                 }
 
+                match question_dict['discipline']:
+                    case "ciencias-humanas":
+                        format_disciplina = "Ciências Humanas"
+                    case "linguagens":
+                        format_disciplina = "Linguagens"
+                    case "ciencias-natureza":
+                        format_disciplina = "Ciências Natureza"
+                    case "matematica":
+                        format_disciplina = "Matemática"
+                    case _:
+                        format_disciplina = "-"
+
+                question_dict_formatted["disciplina"] = format_disciplina
+
                 # Salva o caminho para onde a questão formatada deve ir
                 dir_questions_number_json = os.path.join(dir_questions_json, str(i))
                 # Cria esse caminho caso ele não exista
@@ -109,7 +123,7 @@ def enemFormatarQuestoes(anoDaProva):
                     for arquivo in sorted(os.listdir(dir_questions_number_json)):
                         if pattern_img_alternativa.match(arquivo):
                             path_image_complete = os.path.join(dir_questions_number_json, arquivo).replace("\\", "/")
-                            # Armazena esse caminho no array 'alter_img' do dict formatado da alternativa
+                            # Armazena esse caminho no array 'imgUrl' do dict formatado da alternativa
                             alternativa_formatted['imgUrl'] = path_image_complete
                             break
 
