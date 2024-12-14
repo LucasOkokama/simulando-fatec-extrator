@@ -7,36 +7,36 @@
         }
     },
     "numQuestao": 1,
-    "disciplina": "",
-    "enunciado": "",
+    "disciplina": null,
+    "enunciado": null,
     "imgs": [],
-    "pergunta": "",
-    "gabarito": "",
+    "pergunta": null,
+    "gabarito": null,
     "alternativas": [
         {
             "letra": "A",
-            "texto": "",
-            "imgUrl": ""
+            "texto": null,
+            "imgUrl": null
         },
         {
             "letra": "B",
-            "texto": "",
-            "imgUrl": ""
+            "texto": null,
+            "imgUrl": null
         },
         {
             "letra": "C",
-            "texto": "",
-            "imgUrl": ""
+            "texto": null,
+            "imgUrl": null
         },
         {
             "letra": "D",
-            "texto": "",
-            "imgUrl": ""
+            "texto": null,
+            "imgUrl": null
         },
         {
             "letra": "E",
-            "texto": "",
-            "imgUrl": ""
+            "texto": null,
+            "imgUrl": null
         }
     ]
 }
