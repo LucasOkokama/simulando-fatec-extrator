@@ -1,6 +1,8 @@
 Me retorne somente um TEXTO em formato JSON, mas deixe as linhas formatadas corretamente ao invés de ser apenas um texto corrido.
+Siga fielmente ao modelo JSON informado ao fim, tomando muito cuidado com o fechamento das chaves.
+Principalmente no campo "prova" que contém "id", e dentro dele existe "vestibular" (que contém outro "id"), "ano", "semestre".
 
-Utilizando a seguinte estrutura JSON, quero que você formate a questão informada ao fim alterando os valores de:
+Utilizando a estrutura JSON informada ao fim, quero que você formate a questão informada no começo alterando os valores de:
 - Enunciado, Pergunta, e Texto (das alternativas) com base no pdf, do qual contém as questões do Vestibular.
 
 Para preencher os textos das alternativas, pegue o texto de cada alternativa da questão escolhida e atribua ao seus respectivos valores no JSON.
@@ -27,5 +29,6 @@ Você deve ignorar qualquer tipo de "quadro", "tabela" ou coisa do gênero, mesm
 
 
 
-As aspas duplas que aparecerem em Enunciado, Pergunta e nos textos das alternativas devem ser precedidos de uma barra (\) para evitar problemas de formatação.
+As aspas duplas que aparecerem em Enunciado, Pergunta e nos textos das alternativas devem ser precedidos de apenas uma única barra invertida (nada mais que isso) para evitar problemas de formatação.
 
+Textos que estiverem em inglês devem ser mantidos em inglês.

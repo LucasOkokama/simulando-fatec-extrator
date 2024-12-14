@@ -39,7 +39,7 @@ def enemExtrairQuestoes(anoDaProva):
   num_questions = 180
 
   for i in range(1, num_questions + 1):
-    
+
     # Modifica a URL para buscar a questão com índice específico
     response = requests.get(f"{urlSelfHosting}{i}")
 

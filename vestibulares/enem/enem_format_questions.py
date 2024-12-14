@@ -26,10 +26,16 @@ def enemFormatarQuestoes(anoDaProva):
 
                 # Cria o dict formatado da questão e preenche alguns valores
                 question_dict_formatted = {
-                    "vestibular": 1,
-                    "ano": question_dict['year'],
-                    "semestre": 0,
-                    "num_questao": question_dict['index'],
+                     "prova": {
+                        "id": {
+                            "vestibular": {
+                                "id": 1
+                            },
+                            "ano": question_dict['year'],
+                            "semestre": 0
+                        }
+                    },
+                    "numQuestao": question_dict['index'],
                     "disciplina": question_dict['discipline'],
                     "enunciado": "",
                     "imgs": [],
@@ -37,6 +43,20 @@ def enemFormatarQuestoes(anoDaProva):
                     "gabarito": question_dict['correctAlternative'],
                     "alternativas": []
                 }
+
+                match question_dict['discipline']:
+                    case "ciencias-humanas":
+                        format_disciplina = "Ciências Humanas"
+                    case "linguagens":
+                        format_disciplina = "Linguagens"
+                    case "ciencias-natureza":
+                        format_disciplina = "Ciências Natureza"
+                    case "matematica":
+                        format_disciplina = "Matemática"
+                    case _:
+                        format_disciplina = "-"
+
+                question_dict_formatted["disciplina"] = format_disciplina
 
                 # Salva o caminho para onde a questão formatada deve ir
                 dir_questions_number_json = os.path.join(dir_questions_json, str(i))
@@ -74,7 +94,7 @@ def enemFormatarQuestoes(anoDaProva):
                     \\[     => Procura pelo carácter "[". A barra invertida >\\< serve para fazer o escape
                     \\]     => Procura pelo carácter "]". A barra invertida >\\< serve para fazer o escape
                     \\(     => Procura pelo carácter "(". A barra invertida >\\< serve para fazer o escape
-                    (.*?)  => Procura por qualquer carácter (.) que apareça zero ou mais vezes (*) 
+                    (.*?)  => Procura por qualquer carácter (.) que apareça zero ou mais vezes (*)
                                 no menor espaço possível para satisfazer a condição (? ou não-guloso)
                     \\)     ==> Procura pelo carácter ")". A barra invertida >\\< serve para fazer o escape
                     '''
@@ -95,7 +115,7 @@ def enemFormatarQuestoes(anoDaProva):
                     alternativa_formatted = {
                         "letra": alternativa['letter'],
                         "texto": alternativa['text'],
-                        "img_url": ""
+                        "imgUrl": None
                     }
 
                     # Regex para encontrar arquivos com nomes específicos. Eles são as imagens das alternativas
@@ -103,8 +123,8 @@ def enemFormatarQuestoes(anoDaProva):
                     for arquivo in sorted(os.listdir(dir_questions_number_json)):
                         if pattern_img_alternativa.match(arquivo):
                             path_image_complete = os.path.join(dir_questions_number_json, arquivo).replace("\\", "/")
-                            # Armazena esse caminho no array 'alter_img' do dict formatado da alternativa
-                            alternativa_formatted['img_url'] = path_image_complete
+                            # Armazena esse caminho no array 'imgUrl' do dict formatado da alternativa
+                            alternativa_formatted['imgUrl'] = path_image_complete
                             break
 
                     # Adiciona o objeto da alternativa criado na list 'alternativas' do json formatado

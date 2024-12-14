@@ -68,7 +68,7 @@ def fatecFormatarQuestoes(anoDaProva, semestreDaProva):
         # Armazena o JSON
         prompt_json_modelo = json.load(prompt_question_json_file)
 
-      # Transforma o JSON em uma String e junta com o pedido
+      # Transforma o JSON em uma String
       prompt_json_modelo = json.dumps(prompt_json_modelo)
 
 
@@ -115,16 +115,16 @@ def fatecFormatarQuestoes(anoDaProva, semestreDaProva):
           questao_formatada_json = json.loads(questao_formatada_json)
 
           # Adiciona valores à alguns campos
-          questao_formatada_json['ano'] = anoDaProva
-          questao_formatada_json['vestibular'] = 2
-          questao_formatada_json['semestre'] = semestreDaProva
+          questao_formatada_json['prova']['id']['vestibular']['id'] = 2
+          questao_formatada_json['prova']['id']['ano'] = anoDaProva
+          questao_formatada_json['prova']['id']['semestre'] = semestreDaProva
           questao_formatada_json['disciplina'] = response_Disciplina.text
           questao_formatada_json['gabarito'] = response_Gabarito.text
 
           if response_EnunciadoExtra.text != "Nao_Existe":
             backup_enunciado = questao_formatada_json['enunciado']
             questao_formatada_json['enunciado'] = response_EnunciadoExtra.text
-            if backup_enunciado is not None:
+            if (backup_enunciado is not None) and (backup_enunciado != response_EnunciadoExtra.text):
               questao_formatada_json['enunciado'] += "\n\n"
               questao_formatada_json['enunciado'] += backup_enunciado
 
@@ -150,12 +150,12 @@ def fatecFormatarQuestoes(anoDaProva, semestreDaProva):
             json.dump(questao_formatada_json, path_json_formatted, indent=4, ensure_ascii=False)
 
 
-          time.sleep(3)
+          time.sleep(5)
 
         except Exception as e:
           # Mostra o erro e permite continuação da execução
-          print(f">>> Erro ao processar a questão {num_questao}: {e}")
-          time.sleep(3)
+          print(f">>> Erro ao processar a questão {num_questao}: {e}<<<\n\n\n")
+          time.sleep(5)
 
   except FileNotFoundError:
     # Tratamento para arquivo não encontrado
