@@ -48,8 +48,8 @@ def fuvestFormatarQuestoes(anoDaProva):
 
       # Array contendo os arquivos (PDF's)
       files = [
-        upload_pdf(f"vestibulares/fuvest/pdf/fuvestProva_{anoDaProva}.pdf", mime_type="application/pdf"),
-        upload_pdf(f"vestibulares/fuvest/pdf/fuvestGabarito_{anoDaProva}.pdf", mime_type="application/pdf"),
+        upload_pdf(f"vestibulares/fuvest/pdf/FuvestProva_{anoDaProva}.pdf", mime_type="application/pdf"),
+        upload_pdf(f"vestibulares/fuvest/pdf/FuvestGabarito_{anoDaProva}.pdf", mime_type="application/pdf"),
       ]
 
       print("\n\n\n")
