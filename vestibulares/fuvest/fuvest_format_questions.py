@@ -98,9 +98,10 @@ def fuvestFormatarQuestoes(anoDaProva):
           print(response_Disciplina.usage_metadata)
 
           # Retorna somente o gabarito de uma determinada questão
-          prompt_Gabarito = f"Me retorne somente o gabarito da questão {num_questao:03}"
+          # Retorna somente o gabarito da questão para a "PROVA V"
+          prompt_Gabarito = f"Me retorne somente o gabarito da questão {num_questao:03} na tabela de gabaritos, especificamente na coluna PROVA V."
           response_Gabarito = model.generate_content([prompt_Gabarito, files[1]])
-          print(f"> Identificando gabarito da questao {num_questao} ({anoDaProva})")
+          print(f"> Identificando gabarito da questão {num_questao} ({anoDaProva}) na coluna PROVA V")
           # Retorna o custo de Token da requisição
           print(response_Gabarito.usage_metadata)
           print("\n")
