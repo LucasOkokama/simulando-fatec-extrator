@@ -1,8 +1,8 @@
 # Tópicos
-### [Pré-requisitos](#pré-requisitos)
-### [Extrair questões do ENEM](#extrair-questões-do-enem)
-### [Extrair questões da FATEC](#extrair-questões-da-fatec)
-### [Extrair questões da FUVEST](#extrair-questões-da-fuvest)
+### [1. Pré-requisitos](#pré-requisitos)
+### [2. Extrair questões do ENEM](#extrair-questões-do-enem)
+### [3. Extrair questões da FATEC](#extrair-questões-da-fatec)
+### [4. Extrair questões da FUVEST](#extrair-questões-da-fuvest)
 
 <br>
 
