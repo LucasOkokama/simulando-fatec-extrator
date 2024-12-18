@@ -110,7 +110,7 @@ py fatec.py
 > [!IMPORTANT]
 > Nenhum imagem é extraída, estas devem ser feitas manualmente.
 
-1. As questões do Vestibular FATEC serão extraidas usando o [Gemini AI](https://gemini.google.com/) da Google. Para isso, você deve [**criar uma chave de API**](https://aistudio.google.com/apikey) gratuitamente, além de ter uma [conta Google](#conta-google-para-o-gemini-ai).
+1. As questões do Vestibular FUVEST serão extraidas usando o [Gemini AI](https://gemini.google.com/) da Google. Para isso, você deve [**criar uma chave de API**](https://aistudio.google.com/apikey) gratuitamente, além de ter uma [conta Google](#conta-google-para-o-gemini-ai).
 2. Faça um `git clone` do repositório:
 ```console
 git clone https://github.com/LucasKazuhiro/vestibular-extrair-questoes.git
