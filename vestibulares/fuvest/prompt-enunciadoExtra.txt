@@ -1,0 +1,9 @@
+Você deve ignorar qualquer tipo de "quadro", "tabela", "gráficos" ou coisa do gênero, mesmo que ela esteja em texto ignore-a. Não busque titulo ou informações delas.
+
+Algumas questões precisam de um texto de suporte para serem resolvidas, outras não precisam desse texto.
+Esses textos normalmente possuem um titulo como "Leia o texto para responder às questões de XX a YY." ou "Leia o texto para responder às questões de XX e YY.", sendo XX e YY números que representam um intervalo.
+Quero que você busque somente o texto de suporte que faz referencia a questão pedido, ou seja, o numero da questao tem que estar no intervalo informado, mas não inclua o título do texto.
+
+Se não houver nenhum texto de suporte que possua o titulo "Leia o texto para responder às questões de XX a YY." ou "Leia o texto para responder às questões de XX e YY." para a questão pedida, retorne um "Nao_Existe". Não invente informações.
+
+Textos que estiverem em inglês devem ser mantidos em inglês.
