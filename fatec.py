@@ -8,3 +8,4 @@ for anoDaProva in range(2024, 2008, -1):
 
         if os.path.isfile(provaPath) and os.path.isfile(gabaritoPath):
             fatecFormatarQuestoes(anoDaProva, semestreDaProva, provaPath, gabaritoPath)
+            print("\n\n\n\n")

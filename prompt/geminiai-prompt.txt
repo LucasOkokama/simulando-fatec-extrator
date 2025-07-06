@@ -1,0 +1,55 @@
+Me retorne somente um TEXTO em formato JSON, mas deixe as linhas formatadas corretamente ao invés de ser apenas um texto corrido.
+Siga fielmente ao modelo JSON informado ao fim, tomando muito cuidado com o fechamento das chaves.
+Principalmente no campo "prova" que contém "id", e dentro dele existe "ano", "semestre".
+
+Utilizando a estrutura JSON informada ao fim, quero que você formate o JSON para que suas informações sejam comptativeis com a questão informada no começo.
+
+Não altere e nem insira informações nos campos "ano", "semestre" e "numQuestao", "imgs", "letra" e "imgUrl", pois essas informações sou eu quem irei preencher.
+
+
+
+Para preencher a disciplina da questão informada considere:
+Me retorne somente a disciplina da questão, sendo ela representado somente por Matemática, Português, Física, Química, Biologia, História, Geografia, Inglês, Raciocínio Lógico ou Multidisciplinar.
+Utilize o gabarito como base, pois no gabarito mostra a disciplina da questão.
+Não tente descobrir qual é a disciplina com base nos dados da questão, apenas siga o que está no gabarito.
+
+
+Para preencher o enunciado da questão informada considere:
+Me retorne somente o enunciado da questão.
+Tome cuidado para não incluir a pergunta da questão, visto que há um campo somente para a pergunta.
+Algumas questões podem não ter enunciado, e terem somente perguntas.
+Algumas questões precisam de um texto de suporte para serem resolvidas, outras não precisam desse texto.
+Esses textos normalmente possuem um título como "Leia o texto para responder às questões de XX a YY." ou "Leia o texto para responder às questões de XX e YY.", sendo XX e YY números que representam um intervalo.
+Quero que você busque somente o texto de suporte que faz referência a questão pedido, ou seja, o número da questão tem que estar no intervalo informado.
+Em hipótese alguma inclua o título desses textos de suporte. Repito, não inclua título de textos no enunciado, quero somente o texto corrido do enunciado.
+
+
+Para preencher a pergunta da questão informada considere:
+Me retorne somente a pergunta da questão.
+Algumas vezes elas terminam com ponto de interrogação.
+Algumas vezes elas terminam com dois pontos.
+Algumas vezes elas terminam no meio, sendo que as alternativas completam o texto da pergunta.
+Nesse caso, retorne somente o texto da pergunta até o meio, visto que há campos próprios para os textos das alternativas.
+
+
+Para preencher o gabarito da questão informada considere:
+Me retorne somente o gabarito da questão, sendo ele representado somente por A, B, C, D ou E.
+Utilize o gabarito como base para definir o gabarito da questão informada.
+
+
+Para preencher o texto das alternativas considere:
+Pegue o texto de cada alternativa da questão escolhida e atribua ao seus respectivos valores no JSON.
+Os valores das alternativas não podem se repetir no JSON, elas são únicas.
+
+
+
+Configurações gerais do JSON:
+Textos que estiverem em inglês devem ser mantidos em inglês.
+Você deve ignorar qualquer tipo de "quadro", "tabela" ou coisa do gênero, mesmo que ela esteja em texto ignore-a.
+Tudo que for vazio, defina como vazio ou nulo seguindo a sintaxe JSON.
+Tudo que possa causar problemas de formatação, trate de forma adequada.
+Por exemplo, substitua aspas duplas por aspas simples.
+Substitua "/n" (quebra de linha) pela tag HTML "<br>".
+Enfim, evite problemas de formatação visto que imprimirei essas informações em um site.
+Em hipótese alguma adicione textos que não estejam presentes nos dados enviados para você, ou seja, não invente informações.
+Seu trabalho é apenas formatar o JSON com os dados da questão.
