@@ -1,0 +1,41 @@
+{
+    "prova" : {
+        "id" : {
+            "ano": 0,
+            "semestre": 0
+        }
+    },
+    "numQuestao": 0,
+    "disciplina": null,
+    "enunciado": null,
+    "imgs": [],
+    "pergunta": null,
+    "gabarito": null,
+    "alternativas": [
+        {
+            "letra": "A",
+            "texto": null,
+            "imgUrl": null
+        },
+        {
+            "letra": "B",
+            "texto": null,
+            "imgUrl": null
+        },
+        {
+            "letra": "C",
+            "texto": null,
+            "imgUrl": null
+        },
+        {
+            "letra": "D",
+            "texto": null,
+            "imgUrl": null
+        },
+        {
+            "letra": "E",
+            "texto": null,
+            "imgUrl": null
+        }
+    ]
+}

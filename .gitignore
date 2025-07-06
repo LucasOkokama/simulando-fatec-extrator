@@ -1,8 +1,8 @@
 __pycache__/
 *.pyc
 
-/gemini-api-key.txt
-
-vestibulares/**/*.json
-vestibulares/enem/enemExtraido/*.txt
+fatec_formatado/**/*.json
 *.png
+*.jpg
+
+.env
