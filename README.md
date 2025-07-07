@@ -1,10 +1,12 @@
-# Simulando Fatec - Extractor
-Este repositório faz parte de um projeto maior que visa desenvolver uma plataforma gratuita para estudantes realizarem simulados de vestibulares, com foco inicial na FATEC.
+# Simulando Fatec | Extractor
+Este repositório faz parte do projeto [`SIMULANDO FATEC`](https://github.com/pedro-Trovo/simulando-fatec) que visa desenvolver uma plataforma gratuita para estudantes realizarem simulados do Vestibular FATEC.
 
-Para que a plataforma funcione corretamente, é necessário ter um banco de dados populado com questões organizadas e bem estruturadas. Pensando nisso, este mini projeto foi criado com o objetivo de automatizar a extração das questões diretamente dos PDFs das provas e gabaritos oficiais da FATEC, convertendo-as para o formato JSON.
+Para que a plataforma funcione corretamente, é necessário ter um banco de dados populado com questões organizadas e bem estruturadas. Pensando nisso, este repositório foi criado com o objetivo de automatizar a extração das questões diretamente dos PDFs das provas e gabaritos oficiais da FATEC, convertendo-as para o formato JSON.
 
-O script analisa os arquivos PDF da prova e do gabarito, localiza e extrai as questões de forma estruturada, transformando-as em um JSON padronizado. Esse JSON pode então ser utilizado por outro projeto (responsável pelo backend) para cadastrar as informações no banco de dados de maneira automatizada.
+O script analisa os arquivos PDF da prova e do gabarito, localiza e extrai as questões de forma estruturada, transformando-as em um JSON padronizado. Esse JSON pode então ser cadastrado em um banco de dados e mostrados na tela.
 
+
+<br>
 
 
 ## 🛠️ Tech Stack
@@ -33,6 +35,8 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
     </tr>
 </table>
 
+
+<br>
 
 
 ## 📁 Estrutura do Projeto
@@ -74,38 +78,36 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
 > Ex: FatecGabarito_2024_1.pdf
 
 
+<br>
+
+
 ## ⚙️ Pré-requisitos
 - Ter o [Python](https://www.python.org/downloads/) instalado no sistema.
 - Gerar uma [API Key](https://aistudio.google.com/apikey) para utilizar o GeminiAI.
 - Baixar o [PyCharm](https://www.jetbrains.com/pycharm/) para facilitar a execução e organização do código (opcional). 
 
 
+<br>
 
-## Extrair questões da FATEC
-> [!NOTE]  
-> Em caso de dúvidas, veja a [documentação oficial](https://ai.google.dev/gemini-api/docs) da API da Gemini AI para facilitar!
 
-> [!CAUTION]
-> O Gemini AI tende a errar os valores dos campos `enunciado` e `pergunta`. Por isso, é bom revisá-los!
-
-> [!IMPORTANT]
-> Nenhum imagem é extraída, estas devem ser feitas manualmente.
-
-1. As questões do Vestibular FATEC serão extraidas usando o [Gemini AI](https://gemini.google.com/) da Google. Para isso, você deve [**criar uma chave de API**](https://aistudio.google.com/apikey) gratuitamente, além de ter uma [conta Google](#conta-google-para-o-gemini-ai).
-2. Faça um `git clone` do repositório:
+## 🚀 Inicializando o projeto
+1. Faça um `git clone` do repositório:
 ```console
-git clone https://github.com/LucasKazuhiro/vestibular-extrair-questoes.git
+git clone https://github.com/LucasOkokama/simulando-fatec-extrator
+cd simulando-fatec-extrator
 ```
-3. Copie sua API Key do Gemini AI e cole no arquivo `gemini-api-key.txt`
-4. Na pasta root do projeto `vestibular-extrair-questoes`, execute o seguinte comando:
-```console
-git update-index --assume-unchanged gemini-api-key.txt
+
+2. Instale as depêndencias do projeto:
 ```
-5. Instale os pacotes para usar o Gemini AI:
-```console
-pip install -q -U google-generativeai
+pip install -r requirements.txt
 ```
-6. E em seguida:
-```console
+
+3. Crie um arquivo `.env` para armazenar sua API Key:
+```
+GEMINIAI_KEY=<GEMINIAI_API_KEY>   
+```
+
+4. Execute o script principal:
+```
 py fatec.py
 ```
