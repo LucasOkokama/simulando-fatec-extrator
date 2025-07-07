@@ -7,7 +7,7 @@ O script analisa os arquivos PDF da prova e do gabarito, localiza e extrai as qu
 
 
 
-## ⚙️ Tech Stack
+## 🛠️ Tech Stack
 O projeto foi desenvolvido utilizando Python, linguagem escolhida pela sua versatilidade e poderosas bibliotecas de manipulação de arquivos e dados estruturados. O script em Python é responsável por abrir e ler os PDFs da prova e do gabarito, processar os textos e organizar as informações extraídas no formato JSON.
 
 Para auxiliar na interpretação e organização das questões, foi utilizado o Gemini AI, uma inteligência artificial desenvolvida pela Google. Com a ajuda dessa IA, foi possível identificar padrões e extrair dados de forma mais precisa e eficiente.
@@ -32,6 +32,52 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
         </td>
     </tr>
 </table>
+
+
+
+## 📁 Estrutura do Projeto
+`fatec.py`: Responsável por percorrer os anos e semestres das provas da FATEC.
+
+`fatec_format_questions.py`: Responsável por formatar cada questão individual em JSON.
+
+`prompt/`: Contém os arquivos utilizados para instruir o Gemini AI durante o processo de extração e formatação das questões.
+- `geminiai-prompt.txt`: Contém o texto de instruções enviado ao Gemini AI para orientar a conversão das questões.
+- `questao-base-prompt.json`: Arquivo modelo com o formato desejado da questão em JSON.
+
+`fatec_formatado/`: Pasta onde serão salvos os arquivos JSON contendo as questões formatadas.
+
+`pdf/`: Diretório destinado ao armazenamento dos PDFs das provas e dos gabaritos da FATEC.
+
+`.gitignore`: Arquivo de configuração do Git que define quais arquivos ou pastas devem ser ignorados no versionamento.
+
+```
+> ESTRUTURA VISUAL
+
+📦
+├── fatec.py
+├── fatec_format_questions.py
+├── prompt/
+│   ├── geminiai-prompt.txt
+│   └── questao-base-prompt.json
+├── fatec_formatado/
+├── pdf/
+│   ├── FatecProva_<ANO>_<SEMESTRE>.pdf
+│   └── FatecGabarito_<ANO>_<SEMESTRE>.pdf
+├── .gitignore
+```
+
+> [!WARNING]
+> Os arquivos PDF's devem seguir a seguinte nomenclatura: <br><br>
+> Modelo: FatecProva_ANO_SEMESTRE.pdf <br>
+> Ex: FatecProva_2024_1.pdf <br><br>
+> Modelo: FatecGabarito_ANO_SEMESTRE.pdf <br>
+> Ex: FatecGabarito_2024_1.pdf
+
+
+## ⚙️ Pré-requisitos
+- Ter o [Python](https://www.python.org/downloads/) instalado no sistema.
+- Gerar uma [API Key](https://aistudio.google.com/apikey) para utilizar o GeminiAI.
+- Baixar o [PyCharm](https://www.jetbrains.com/pycharm/) para facilitar a execução e organização do código (opcional). 
 
 
 
