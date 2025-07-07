@@ -105,7 +105,7 @@ git clone https://github.com/LucasOkokama/simulando-fatec-extrator
 cd simulando-fatec-extrator
 ```
 
-2. Instale as depêndencias do projeto:
+2. Instale as `depêndencias` do projeto:
 ```
 pip install -r requirements.txt
 ```
@@ -115,7 +115,7 @@ pip install -r requirements.txt
 GEMINIAI_KEY=<SUA_GEMINIAI_API_KEY>   
 ```
 
-4. Execute o script principal:
+4. Execute o `scrip` principal:
 ```
 py fatec.py
 ```
