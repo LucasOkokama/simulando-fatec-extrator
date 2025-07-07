@@ -5,6 +5,8 @@ Para que a plataforma funcione corretamente, é necessário ter um banco de dado
 
 O script analisa os arquivos PDF da prova e do gabarito, localiza e extrai as questões de forma estruturada, transformando-as em um JSON padronizado. Esse JSON pode então ser cadastrado em um banco de dados e mostrados na tela.
 
+> [!TIP]
+> Confira também o [`Front-end`](https://github.com/pedro-Trovo/simulando-fatec-frontend) e [`Back-end`](https://github.com/pedro-Trovo/simulando-fatec-backend) do Simulando Fatec!
 
 <br>
 
@@ -91,6 +93,12 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
 
 
 ## 🚀 Inicializando o projeto
+> [!NOTE]  
+> Em caso de dúvidas, veja a [documentação oficial](https://ai.google.dev/gemini-api/docs) da API da Gemini AI!
+
+> [!CAUTION]
+> O Gemini AI tende a errar os valores dos campos `enunciado` e `pergunta`. Por isso, é bom revisá-los!
+
 1. Faça um `git clone` do repositório:
 ```console
 git clone https://github.com/LucasOkokama/simulando-fatec-extrator
@@ -104,7 +112,7 @@ pip install -r requirements.txt
 
 3. Crie um arquivo `.env` para armazenar sua API Key:
 ```
-GEMINIAI_KEY=<GEMINIAI_API_KEY>   
+GEMINIAI_KEY=<SUA_GEMINIAI_API_KEY>   
 ```
 
 4. Execute o script principal:
