@@ -22,7 +22,7 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
     <tr>
         <th>Linguagem</th>
         <th>Biblioteca</th>
-        <th>Editor/IDE</th>
+        <th>Editor / IDE</th>
     </tr>
     <tr>
         <th>
@@ -115,7 +115,7 @@ pip install -r requirements.txt
 GEMINIAI_KEY=<SUA_GEMINIAI_API_KEY>   
 ```
 
-4. Execute o `scrip` principal:
+4. Execute o `script` principal:
 ```
 py fatec.py
 ```
