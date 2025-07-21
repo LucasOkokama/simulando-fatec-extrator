@@ -17,7 +17,8 @@ Não tente descobrir qual é a disciplina com base nos dados da questão, apenas
 Para preencher o enunciado da questão informada considere:
 Me retorne somente o enunciado da questão.
 Tome cuidado para não incluir a pergunta da questão, visto que há um campo somente para a pergunta.
-Algumas questões podem não ter enunciado, e terem somente perguntas.
+Não transcreva textos presente em imagens, pode ignorar as imagens.
+Em algumas questões o enunciado pode estar antes da imagem presente naquela questão ou podem não ter enunciado e terem somente perguntas.
 Algumas questões precisam de um texto de suporte para serem resolvidas, outras não precisam desse texto.
 Esses textos normalmente possuem um título como "Leia o texto para responder às questões de XX a YY." ou "Leia o texto para responder às questões de XX e YY.", sendo XX e YY números que representam um intervalo.
 Quero que você busque somente o texto de suporte que faz referência a questão pedido, ou seja, o número da questão tem que estar no intervalo informado.
