@@ -1,7 +1,8 @@
+import os
+
 # 📦 Funções customizadas
 from fatec_format_questions import formatarQuestoes
 from fatec_extract_images import extrairImagens
-import os
 
 
 # Dados para a extração funcionar (OBRIGATÓRIO)
