@@ -1,0 +1,21 @@
+Eu extraí algumas imagens do PDF de uma prova de vestibular e preciso que você me ajude a organizar as imagens enviadas.
+Ou seja, gostaria que você me ajudasse a identificar de qual questão as imagens pertencem.
+Logo, no fim você precisa me enviar o JSON com os dados. Retorne somente o JSON, nada além disso.
+
+
+Para isso, você deve serguir o JSON enviado abaixo.
+Os valores presentes no JSON são somente para exemplos, se atente a estrutura dele e siga algo igual.
+
+O campo principal deve ser chamar "questoes".
+Ele armazenará o alinhamento entre as imagens e questões.
+Dentro desse campo você deve trabalhar com a estrutura "chave: valor".
+A "chave" seria o nome da imagem ao qual você está atrelando a uma questão.
+O "valor" seria um array contendo os números das questões ao qual aquela imagem faz parte.
+
+Na "chave", o nome da imagem pode ser definida seguindo o padrão "img_xyz.png", sendo que "xyz" é o número vermelho presente na imagem.
+É através desse número vermelho que você irá identificar cada imagem.
+
+
+Lembre-se que uma mesma imagem pode estar presente no enunciado de mais de uma questão.
+Retorne todas as imagens no JSON, todas as imagens precisão fazer parte de uma questão no JSON.
+Caso a imagem não faça parte de nenhuma questão, retorne o array vazio.
