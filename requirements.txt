@@ -1,2 +1,4 @@
+Pillow
+PyMuPDF
 google-genai
 python-dotenv
