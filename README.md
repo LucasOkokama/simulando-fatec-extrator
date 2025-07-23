@@ -46,9 +46,9 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
 
 `fatec_control`: Responsável por selecionar uma prova específica da FATEC para extrair seus dados.
 
-`fatec_format_questions.py`: Responsável por formatar cada questão e armazenar em um JSON.
+[`fatec_format_questions.py`](EXTRACAO_QUESTAO_EXPLICACAO.md): Responsável por formatar cada questão e armazenar em um JSON.
 
-`fatec_extract_images.py`: Responsável por extrair as imagens de uma prova e armazenar seu caminho no JSON.
+[`fatec_extract_images.py`](EXTRACAO_IMAGEM_EXPLICACAO.md): Responsável por extrair as imagens de uma prova e armazenar seu caminho no JSON.
 
 `prompt/`: Contém os arquivos utilizados para instruir o Gemini AI durante o processo de extração/formatação das questões e imagens.
 - `geminiai-extracao-questao.txt`: Contém o texto de instruções enviado ao Gemini AI para orientar a conversão das questões.
