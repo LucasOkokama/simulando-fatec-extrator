@@ -42,13 +42,19 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
 
 
 ## 📁 Estrutura do Projeto
-`fatec.py`: Responsável por percorrer os anos e semestres das provas da FATEC.
+`fatec_geral`: Responsável por percorrer por todas as provas da FATEC (anos e semestres) para extrair seus dados.
 
-`fatec_format_questions.py`: Responsável por formatar cada questão individual em JSON.
+`fatec_control`: Responsável por selecionar uma prova específica da FATEC para extrair seus dados.
 
-`prompt/`: Contém os arquivos utilizados para instruir o Gemini AI durante o processo de extração e formatação das questões.
-- `geminiai-prompt.txt`: Contém o texto de instruções enviado ao Gemini AI para orientar a conversão das questões.
-- `questao-base-prompt.json`: Arquivo modelo com o formato desejado da questão em JSON.
+`fatec_format_questions.py`: Responsável por formatar cada questão e armazenar em um JSON.
+
+`fatec_extract_images.py`: Responsável por extrair as imagens de uma prova e armazenar seu caminho no JSON.
+
+`prompt/`: Contém os arquivos utilizados para instruir o Gemini AI durante o processo de extração/formatação das questões e imagens.
+- `geminiai-extracao-questao.txt`: Contém o texto de instruções enviado ao Gemini AI para orientar a conversão das questões.
+- `geminiai-extracao-imagem.txt`: Contém o texto de instruções enviado ao Gemini AI para orientar a extração das imagens.
+- `questao-base.json`: Arquivo modelo com o formato desejado da questão em JSON.
+- `extracao-imagem-base.json`: Arquivo modelo com o formato desejado da extração das imagens organizadas em JSON.
 
 `fatec_formatado/`: Pasta onde serão salvos os arquivos JSON contendo as questões formatadas.
 
@@ -60,11 +66,15 @@ O ambiente de desenvolvimento utilizado foi o PyCharm, uma IDE robusta para Pyth
 > ESTRUTURA VISUAL
 
 📦
-├── fatec.py
+├── fatec_geral.py
+├── fatec_control.py
 ├── fatec_format_questions.py
+├── fatec_extract_images.py
 ├── prompt/
-│   ├── geminiai-prompt.txt
-│   └── questao-base-prompt.json
+│   ├── geminiai-extracao-questao.txt
+│   ├── geminiai-extracao-imagem.txt
+│   ├── questao-base.json
+│   └── extracao-imagem-base.json
 ├── fatec_formatado/
 ├── pdf/
 │   ├── FatecProva_<ANO>_<SEMESTRE>.pdf
