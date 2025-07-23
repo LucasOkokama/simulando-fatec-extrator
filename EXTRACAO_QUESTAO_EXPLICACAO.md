@@ -75,16 +75,20 @@ A função `formatarQuestoes` é a principal do script. Ela recebe o ano e semes
 # 📄 Carregando arquivos e prompts
 
 ```python
+# Array contendo os arquivos (PDF's)
 files = [
   pathlib.Path(provaPath),
   pathlib.Path(gabaritoPath),
 ]
 
+# Armazena o PROMPT geral
 with open('prompt/geminiai-extracao-questao.txt', 'r', encoding="utf-8") as my_file:
   prompt_questao = my_file.read()
 
+# Armazena o PROMPT do JSON base
 with open('prompt/questao-base.json', 'r', encoding="utf-8") as my_file:
   prompt_jsonBase = json.load(my_file)
+# Transforma o JSON em uma String
 prompt_jsonBase_string = json.dumps(prompt_jsonBase)
 ```
 
@@ -146,7 +150,10 @@ Aqui, o código:
 ```python
 print(f"{response.usage_metadata.total_token_count} tokens usados\n")
 
+# Remove as marcações do "fenced code block" (aspas triplas)
 questao_formatada = response.text.replace('```json', '').replace('```', '')
+
+# Passa de string (com formatação JSON) para um dicionário do Python
 questao_formatada = json.loads(questao_formatada)
 ```
 
@@ -161,13 +168,16 @@ questao_formatada = json.loads(questao_formatada)
 # 📝 Adiciona dados extras e salva arquivo
 
 ```python
+# Adiciona valores à alguns campos
 questao_formatada['prova']['id']['ano'] = anoDaProva
 questao_formatada['prova']['id']['semestre'] = semestreDaProva
 questao_formatada['numQuestao'] = num_questao
 
+# Diretório onde o arquivo será salvo
 prova_questao_path = f"fatec_formatado/{anoDaProva}_{semestreDaProva}/{num_questao}"
 os.makedirs(prova_questao_path, exist_ok=True)
 
+# Salva o arquivo JSON no caminho especificado
 dir_final = os.path.join(prova_questao_path, f"fatec_questao{num_questao}.json")
 with open(dir_final, 'w', encoding='utf-8') as file:
   json.dump(questao_formatada, file, indent=4, ensure_ascii=False)
